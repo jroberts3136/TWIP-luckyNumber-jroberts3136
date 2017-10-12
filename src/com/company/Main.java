@@ -8,14 +8,23 @@ public class Main {
         Scanner keyInput = new Scanner(System.in);
         Scanner stringInput = new Scanner(System.in);
 
+        int randomChoice = (int)(Math.random()*2);  //Generates 0 or 1
+        int luckyNum;
         boolean done = false;
         boolean promptAgain;
+
         while(!done){
             System.out.println("What is your name?");
             String name = stringInput.nextLine();
             perfectRandom user = new perfectRandom(name);
-            int luckyNum = user.perfectSquare();
-            System.out.println("Nice to meet you " + user.name + "! Your lucky number is " + luckyNum + ".");
+
+            if (randomChoice == 0){
+                luckyNum = user.perfectSquare();
+            }
+            else{
+                luckyNum = user.randomPrime();
+            }
+            System.out.println("Nice to meet you " + user.getName() + "! Your lucky number is " + luckyNum + ".");
 
             promptAgain = true;
 
